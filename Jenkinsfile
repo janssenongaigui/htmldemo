@@ -3,7 +3,12 @@ pipeline {
 	stages {
 		stage('Self-test') {
 			steps {
-				sh 'ls'
+			sh '''
+				docker
+				minikube
+				kubectl
+				hadolint
+			'''
 			}
 		}
 	}
