@@ -1,13 +1,11 @@
 pipeline {
 	agent any
 	stages {
-		stage('Self-test') {
+		stage('Lint') {
 			steps {
 			sh '''
-				docker
-				minikube
-				kubectl
-				hadolint
+				hadolint Dockerfile
+				pylint --disable=R,C,W1203 app.py
 			'''
 			}
 		}
